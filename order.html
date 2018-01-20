@@ -31,84 +31,126 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top" id="mainNav">
-      <!-- <div class="container"> -->
         <a class="navbar-brand" href="index.html">Got Syrup</a>
-        <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#purchase">Purchase</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#gallery">Gallery</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div> -->
-      <!-- </div> -->
     </nav>
 
-    <section>
+    <section class="order">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h4 class="section-heading">Billing Information</h4>
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-6 col-md-12 text-center">
-                  <label class="text-left col-lg-12">
-                    Full Name:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    Address line 1:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    Address line 2:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    City:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    State/Province/Region:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    ZIP:
-                  </label>
-                  <input type="text">
-                  <label class="text-left col-lg-12">
-                    Phone number:
-                  </label>
-                  <input type="text">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-lg-6 col-md-12 text-center">
-                <form action="/charge" method="post" id="payment-form">
-                  <div class="form-row col-lg-12">
-                    <label for="card-element" class="text-left col-lg-12">
-                      Credit or debit card
-                    </label>
-                    <div id="card-element" class="col-lg-12"></div>
-
-                    <div id="card-errors" class="col-lg-12" role="alert"></div>
+            <div class="col-lg-12">
+              <form class="ui form" id="payment-form">
+                <h4 class="ui dividing header">Shipping Information</h4>
+                <div class="field">
+                  <label>Name</label>
+                  <div class="two fields">
+                    <div class="field">
+                      <input type="text" name="shipping[first-name]" placeholder="First Name" required=true>
+                    </div>
+                    <div class="field">
+                      <input type="text" name="shipping[last-name]" placeholder="Last Name" required=true>
+                    </div>
                   </div>
-
-                  <button class="ui orange button sr-button">Submit Payment</button>
-                </form>
                 </div>
-              </div>
+                <div class="field">
+                  <label>Billing Address</label>
+                  <div class="fields">
+                    <div class="twelve wide field">
+                      <input type="text" name="shipping[address]" placeholder="Street Address" required=true>
+                    </div>
+                    <div class="four wide field">
+                      <input type="text" name="shipping[address-2]" placeholder="Apt #">
+                    </div>
+                  </div>
+                </div>
+                <div class="two fields">
+                  <div class="field">
+                    <label>State</label>
+                    <select class="ui fluid dropdown" required=true>
+                      <option value="">State</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="AZ">Arizona</option>
+                  <option value="AR">Arkansas</option>
+                  <option value="CA">California</option>
+                  <option value="CO">Colorado</option>
+                  <option value="CT">Connecticut</option>
+                  <option value="DE">Delaware</option>
+                  <option value="DC">District Of Columbia</option>
+                  <option value="FL">Florida</option>
+                  <option value="GA">Georgia</option>
+                  <option value="HI">Hawaii</option>
+                  <option value="ID">Idaho</option>
+                  <option value="IL">Illinois</option>
+                  <option value="IN">Indiana</option>
+                  <option value="IA">Iowa</option>
+                  <option value="KS">Kansas</option>
+                  <option value="KY">Kentucky</option>
+                  <option value="LA">Louisiana</option>
+                  <option value="ME">Maine</option>
+                  <option value="MD">Maryland</option>
+                  <option value="MA">Massachusetts</option>
+                  <option value="MI">Michigan</option>
+                  <option value="MN">Minnesota</option>
+                  <option value="MS">Mississippi</option>
+                  <option value="MO">Missouri</option>
+                  <option value="MT">Montana</option>
+                  <option value="NE">Nebraska</option>
+                  <option value="NV">Nevada</option>
+                  <option value="NH">New Hampshire</option>
+                  <option value="NJ">New Jersey</option>
+                  <option value="NM">New Mexico</option>
+                  <option value="NY">New York</option>
+                  <option value="NC">North Carolina</option>
+                  <option value="ND">North Dakota</option>
+                  <option value="OH">Ohio</option>
+                  <option value="OK">Oklahoma</option>
+                  <option value="OR">Oregon</option>
+                  <option value="PA">Pennsylvania</option>
+                  <option value="RI">Rhode Island</option>
+                  <option value="SC">South Carolina</option>
+                  <option value="SD">South Dakota</option>
+                  <option value="TN">Tennessee</option>
+                  <option value="TX">Texas</option>
+                  <option value="UT">Utah</option>
+                  <option value="VT">Vermont</option>
+                  <option value="VA">Virginia</option>
+                  <option value="WA">Washington</option>
+                  <option value="WV">West Virginia</option>
+                  <option value="WI">Wisconsin</option>
+                  <option value="WY">Wyoming</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label>ZIP CODE</label>
+                    <div class="field">
+                      <input type="text" name="shipping[zip]" placeholder="Zip Code" required=true>
+                    </div>
+                  </div>
+                </div>
+                <h4 class="ui dividing header">Billing Information</h4>
+                <div class="fields cc-fields">
+                  <div class="seven wide field card-input">
+                    <label>Card Number</label>
+                    <div id="card-number" class="cc-input"></div>
+                    <div class="baseline"></div>
+                    <div id="card-number-errors" class="col-lg-12 card-alerts" role="alert"></div>
+                  </div>
+                  <div class="three wide field card-input">
+                    <label>CVC#</label>
+                    <div id="card-cvc" class="cc-input"></div>
+                    <div class="baseline"></div>
+                    <div id="card-cvc-errors" class="col-lg-12 card-alerts" role="alert"></div>
+                  </div>
+                  <div class="six wide field card-input">
+                    <label>Expiration</label>
+                    <div id="card-expiry" class="cc-input"></div>
+                    <div class="baseline"></div>
+                    <div id="card-expiry-errors" class="col-lg-12 card-alerts" role="alert"></div>
+                  </div>
+                </div>
+                <button class="ui button green sr-button">Submit Order</button>
+              </form>
             </div>
           </div>
         </div>
@@ -127,7 +169,7 @@
     <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/creative.min.js"></script>
+    <script src="js/create-order.js"></script>
 
   </body>
 

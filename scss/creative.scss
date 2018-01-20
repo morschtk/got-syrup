@@ -51,3 +51,226 @@
     cursor: pointer;
   }
 }
+
+.order .sr-button {
+  margin-top: 30px;
+}
+
+.order .card-alerts {
+  padding-top: 5px;
+  color: #ff0000;
+  font-size: 13px;
+}
+
+// .order {
+//   background-color: #fff;
+// }
+//
+// .order * {
+//   font-family: Source Code Pro, Consolas, Menlo, monospace;
+//   font-size: 16px;
+//   font-weight: 500;
+// }
+
+// .order .row {
+//   display: -ms-flexbox;
+//   display: flex;
+//   margin: 0 5px 10px;
+// }
+
+.order .cc-fields .field {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  margin: 0 10px;
+}
+
+.order .cc-fields .field.half-width {
+  width: 50%;
+}
+
+.order .cc-fields .field.quarter-width {
+  width: calc(25% - 10px);
+}
+
+.order .baseline {
+  // position: absolute;
+  width: 95%;
+  height: 1px;
+  left: 0;
+  bottom: 0;
+  background-color: #cfd7df;
+  transition: background-color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+// .order label {
+//   position: absolute;
+//   width: 100%;
+//   left: 0;
+//   bottom: 8px;
+//   color: #cfd7df;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+//   white-space: nowrap;
+//   transform-origin: 0 50%;
+//   cursor: text;
+//   transition-property: color, transform;
+//   transition-duration: 0.3s;
+//   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+// }
+
+.order .cc-input {
+  // position: absolute;
+  border: 0;
+  box-shadow: none;
+  width: 95%;
+  left: 0;
+  bottom: 0;
+  padding-bottom: 7px;
+  color: #32325d;
+  background-color: transparent;
+}
+
+.order .cc-input::-webkit-input-placeholder {
+  color: #cfd7df;
+  // color: transparent;
+  // transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.order .cc-input::-moz-placeholder {
+  color: #cfd7df;
+  // color: transparent;
+  // transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.order .cc-input:-ms-input-placeholder {
+  color: #cfd7df;
+  // color: transparent;
+  // transition: color 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.order .cc-input.StripeElement {
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  will-change: opacity;
+}
+
+.order .cc-input.focused,
+.order .cc-input:not(.empty) {
+  opacity: 1;
+}
+
+.order .cc-input.focused::-webkit-input-placeholder,
+.order .cc-input:not(.empty)::-webkit-input-placeholder {
+  color: #cfd7df;
+}
+
+.order .cc-input.focused::-moz-placeholder,
+.order .cc-input:not(.empty)::-moz-placeholder {
+  color: #cfd7df;
+}
+
+.order .cc-input.focused:-ms-input-placeholder,
+.order .cc-input:not(.empty):-ms-input-placeholder {
+  color: #cfd7df;
+}
+
+// .order .cc-input.focused + label,
+// .order .cc-input:not(.empty) + label {
+//   color: #aab7c4;
+//   transform: scale(0.85) translateY(-25px);
+//   cursor: default;
+// }
+
+// .order .cc-input.focused + label {
+//   color: #24b47e;
+// }
+
+// .order .cc-input.invalid + label {
+//   color: #ffa27b;
+// }
+
+.order .card-input .cc-input.focused  + .baseline {
+  background-color: #85b7d9;
+}
+
+// .order .cc-input.focused.invalid + label + .baseline {
+//   background-color: #e25950;
+// }
+
+// .order input, .order button {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   outline: none;
+//   border-style: none;
+// }
+
+// .order input:-webkit-autofill {
+//   -webkit-text-fill-color: #e39f48;
+//   transition: background-color 100000000s;
+//   -webkit-animation: 1ms void-animation-out;
+// }
+
+.order .StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+// .order input, .order button {
+//   -webkit-animation: 1ms void-animation-out;
+// }
+
+// .order button {
+//   display: block;
+//   width: calc(100% - 30px);
+//   height: 40px;
+//   margin: 40px 15px 0;
+//   background-color: #24b47e;
+//   border-radius: 4px;
+//   color: #fff;
+//   text-transform: uppercase;
+//   font-weight: 600;
+//   cursor: pointer;
+// }
+
+// .order input:active {
+//   background-color: #159570;
+// }
+
+.order .error svg {
+  margin-top: 0 !important;
+}
+
+.order .error svg .base {
+  fill: #e25950;
+}
+
+.order .error svg .glyph {
+  fill: #fff;
+}
+
+.order .error .message {
+  color: #e25950;
+}
+
+.order .success .icon .border {
+  stroke: #abe9d2;
+}
+
+.order .success .icon .checkmark {
+  stroke: #24b47e;
+}
+
+.order .success .title {
+  color: #32325d;
+  font-size: 16px !important;
+}
+
+.order .success .message {
+  color: #8898aa;
+  font-size: 13px !important;
+}
+
+.order .success .reset path {
+  fill: #24b47e;
+}
