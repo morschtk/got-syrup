@@ -40,6 +40,136 @@
           <div class="col-lg-12">
             <div class="col-lg-12">
               <form class="ui form" id="payment-form">
+                <h4 class="ui dividing header">Quantity of Syrup</h4>
+                <div class="row">
+                  <div class="col-lg-3">
+                    <div class="ui card">
+                      <div class="image">
+                        <img src="img/coke.jpg">
+                      </div>
+                      <div class="content">
+                        <div>
+                          <a class="header">3/4 Pint</a>
+                          <div class="meta">
+                            <span>12 Ounces</span>
+                          </div>
+                        </div>
+                        <a class="turight floated mini ui header">$9</a>
+                      </div>
+                      <div class="extra content select-item">
+                        <div class="edit-amount">
+                          <div class="edit-amount-button" onclick="removeItem('12oz')">
+                            <i class="fa fa-minus"></i>
+                          </div>
+                        </div>
+                        <div style="flex:2;" class="field">
+                          <input type="number" id="12ozQuantity" class="quantity" min="0" placeholder="0">
+                        </div>
+                        <div class="edit-amount">
+                          <div class="edit-amount-button add-item" onclick="addItem('12oz')">
+                            <i class="fa fa-plus"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="ui card">
+                      <div class="image">
+                        <img src="img/32ozGlue.jpg">
+                      </div>
+                      <div class="content">
+                        <div>
+                          <a class="header">1 Quart</a>
+                          <div class="meta">
+                            <span>32 Ounces</span>
+                          </div>
+                        </div>
+                        <a class="turight floated mini ui header">$18</a>
+                      </div>
+                      <div class="extra content select-item">
+                        <div class="edit-amount">
+                          <div class="edit-amount-button" onclick="removeItem('32oz')">
+                            <i class="fa fa-minus"></i>
+                          </div>
+                        </div>
+                        <div style="flex:2;" class="field">
+                          <input type="number" id="32ozQuantity" class="quantity" min="0" placeholder="0">
+                        </div>
+                        <div class="edit-amount">
+                          <div class="edit-amount-button add-item" onclick="addItem('32oz')">
+                            <i class="fa fa-plus"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="ui card">
+                      <div class="image">
+                        <img src="img/matt.png">
+                      </div>
+                      <div class="content">
+                        <div>
+                          <a class="header">1/2 Gallon</a>
+                          <div class="meta">
+                            <span>64 Ounces</span>
+                          </div>
+                        </div>
+                        <a class="turight floated mini ui header">$30</a>
+                      </div>
+                      <div class="extra content select-item">
+                        <div class="edit-amount">
+                          <div class="edit-amount-button" onclick="removeItem('64oz')">
+                            <i class="fa fa-minus"></i>
+                          </div>
+                        </div>
+                        <div style="flex:2;" class="field">
+                          <input type="number" id="64ozQuantity" class="quantity" min="0" placeholder="0">
+                        </div>
+                        <div class="edit-amount">
+                          <div class="edit-amount-button add-item" onclick="addItem('64oz')">
+                            <i class="fa fa-plus"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-3">
+                    <div class="ui card">
+                      <div class="image">
+                        <img src="img/milk.jpeg">
+                      </div>
+                      <div class="content">
+                        <div>
+                          <a class="header">1 Gallon</a>
+                          <div class="meta">
+                            <span>128 Ounces</span>
+                          </div>
+                        </div>
+                        <a class="turight floated mini ui header">$54</a>
+                      </div>
+                      <div class="extra content select-item">
+                        <div class="edit-amount">
+                          <div class="edit-amount-button" onclick="removeItem('128oz')">
+                            <i class="fa fa-minus"></i>
+                          </div>
+                        </div>
+                        <div style="flex:2;" class="field">
+                          <input type="number" id="128ozQuantity" class="quantity" min="0" placeholder="0">
+                        </div>
+                        <div class="edit-amount">
+                          <div class="edit-amount-button add-item" onclick="addItem('128oz')">
+                            <i class="fa fa-plus"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 product-total">
+                    <h3 class="ui header">Total: $<span id="total">0</span>.00</h3>
+                  </div>
+                </div>
                 <h4 class="ui dividing header">Shipping Information</h4>
                 <div class="field">
                   <label>Name</label>

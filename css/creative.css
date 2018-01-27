@@ -274,6 +274,42 @@ header.masthead {
   color: #ff0000;
   font-size: 13px; }
 
+.image img {
+  height: 250px;
+  width: 100%; }
+
+.card .content {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 10px; }
+  .card .content .meta {
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.6); }
+
+.card .select-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around; }
+  .card .select-item .edit-amount {
+    flex: 1;
+    display: flex;
+    justify-content: center; }
+    .card .select-item .edit-amount .edit-amount-button {
+      color: #424242;
+      border-radius: 1em;
+      padding: 4px 10px;
+      border: 1px solid rgba(34, 36, 38, 0.15); }
+    .card .select-item .edit-amount .add-item {
+      background-color: #4CAF50;
+      color: #FAFAFA; }
+  .card .select-item input {
+    text-align: center; }
+
+.product-total {
+  display: flex;
+  margin-top: 5px;
+  justify-content: flex-end; }
+
 .order .cc-fields .field {
   position: relative;
   width: 100%;

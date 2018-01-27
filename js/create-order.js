@@ -1,5 +1,55 @@
 "use strict"; // Start of use strict
 
+function addItem(item) {
+  var str = '#'+item+'Quantity';
+  $(str).val(+$(str).val() + 1);
+  var price = 0;
+  switch(item) {
+    case '12oz':
+      price = 9;
+      break;
+    case '32oz':
+      price = 18;
+      break;
+    case '64oz':
+      price = 30;
+      break;
+    case '128oz':
+      price = 54;
+      break;
+  }
+  var total = +$('#total').text() + price;
+  $('#total').text(total);
+}
+
+function removeItem(item) {
+  var str = '#'+item+'Quantity';
+  if (+$(str).val()) {
+    $(str).val(+$(str).val() - 1);
+    var price = 0;
+    switch(item) {
+      case '12oz':
+      price = 9;
+      break;
+      case '32oz':
+      price = 18;
+      break;
+      case '64oz':
+      price = 30;
+      break;
+      case '128oz':
+      price = 54;
+      break;
+    }
+    var total = +$('#total').text() - price;
+    $('#total').text(total);
+  }
+}
+
+$('.quantity').change(function() {
+  $('#total').text((+$('#12ozQuantity').val()*9) + (+$('#32ozQuantity').val()*18) + (+$('#64ozQuantity').val()*30) + (+$('#128ozQuantity').val()*54));
+});
+
 var stripe = Stripe('');
 var elements = stripe.elements({
   fonts: [
