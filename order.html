@@ -63,7 +63,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="12ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="12ozQuantity" name="12ozQuantity" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('12oz')">
@@ -94,7 +94,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="32ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="32ozQuantity" name="32ozQuantity" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('32oz')">
@@ -125,7 +125,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="64ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="64ozQuantity" name="64ozQuantity" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('64oz')">
@@ -156,7 +156,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="128ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="128ozQuantity" name="128ozQuantity" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('128oz')">
@@ -171,32 +171,40 @@
                   </div>
                 </div>
                 <h4 class="ui dividing header">Shipping Information</h4>
+                <div class="two fields">
+                <div class="field">
+                  <label>Email</label>
+                  <div class="field">
+                    <input type="email" name="email" placeholder="Email" required=true>
+                  </div>
+                </div>
                 <div class="field">
                   <label>Name</label>
                   <div class="two fields">
                     <div class="field">
-                      <input type="text" name="shipping[first-name]" placeholder="First Name" required=true>
+                      <input type="text" name="first_name" placeholder="First Name" required=true>
                     </div>
                     <div class="field">
-                      <input type="text" name="shipping[last-name]" placeholder="Last Name" required=true>
+                      <input type="text" name="last_name" placeholder="Last Name" required=true>
                     </div>
                   </div>
+                </div>
                 </div>
                 <div class="field">
                   <label>Billing Address</label>
                   <div class="fields">
                     <div class="twelve wide field">
-                      <input type="text" name="shipping[address]" placeholder="Street Address" required=true>
+                      <input type="text" name="address_1" placeholder="Street Address" required=true>
                     </div>
                     <div class="four wide field">
-                      <input type="text" name="shipping[address-2]" placeholder="Apt #">
+                      <input type="text" name="address_2" placeholder="Apt #">
                     </div>
                   </div>
                 </div>
                 <div class="two fields">
                   <div class="field">
                     <label>State</label>
-                    <select class="ui fluid dropdown" required=true>
+                    <select class="ui fluid dropdown" name="state" required=true>
                       <option value="">State</option>
                   <option value="AL">Alabama</option>
                   <option value="AK">Alaska</option>
@@ -254,7 +262,7 @@
                   <div class="field">
                     <label>ZIP CODE</label>
                     <div class="field">
-                      <input type="text" name="shipping[zip]" placeholder="Zip Code" required=true>
+                      <input type="text" name="zip" placeholder="Zip Code" required=true>
                     </div>
                   </div>
                 </div>

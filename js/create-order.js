@@ -150,17 +150,20 @@ form.addEventListener('submit', function(event) {
 
 function stripeTokenHandler(token) {
   // Insert the token ID into the form so it gets submitted to the server
-  var form = document.getElementById('payment-form');
+  var form = $('#payment-form');
   var hiddenInput = document.createElement('input');
   hiddenInput.setAttribute('type', 'hidden');
   hiddenInput.setAttribute('name', 'stripeToken');
   hiddenInput.setAttribute('value', token.id);
-  form.appendChild(hiddenInput);
+  form.append(hiddenInput);
+  var totalInput = document.createElement('input');
+  totalInput.setAttribute('type', 'hidden');
+  totalInput.setAttribute('name', 'total_amount');
+  totalInput.setAttribute('value', $('#total').text());
+  form.append(totalInput);
 
   // Submit the form
-  $.post('', {
-    stripeToken: token.id
-  }, function(cred) {
+  $.post('', form.serialize(), function(cred) {
     console.log(cred);
   }).fail(function(err) {
     console.log(err);
