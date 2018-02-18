@@ -67,6 +67,32 @@
   width: 100%;
 }
 
+.confirmation {
+  display: none;
+}
+
+.thank-you {
+  display: none;
+  .thank-you-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .header{
+      margin: 0px;
+      font-size: 52px;
+    }
+    .check {
+      font-size: 82px;
+      color: #008000;
+    }
+  }
+  .message {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 .card {
   .content {
     display: flex;

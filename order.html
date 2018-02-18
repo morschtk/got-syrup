@@ -45,7 +45,7 @@
                   <div class="col-lg-3">
                     <div class="ui card">
                       <div class="image">
-                        <img src="img/coke.jpg">
+                        <img src="img/12ozQuantity.jpg">
                       </div>
                       <div class="content">
                         <div>
@@ -63,7 +63,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="12ozQuantity" name="12ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="12ozQuantity" name="12ozQuantity" data-title="3/4 Pint" data-size="12 Ounces" data-price="9" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('12oz')">
@@ -76,7 +76,7 @@
                   <div class="col-lg-3">
                     <div class="ui card">
                       <div class="image">
-                        <img src="img/32ozGlue.jpg">
+                        <img src="img/32ozQuantity.jpg">
                       </div>
                       <div class="content">
                         <div>
@@ -94,7 +94,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="32ozQuantity" name="32ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="32ozQuantity" name="32ozQuantity" data-title="1 Quart" data-size="32 Ounces" data-price="18" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('32oz')">
@@ -107,7 +107,7 @@
                   <div class="col-lg-3">
                     <div class="ui card">
                       <div class="image">
-                        <img src="img/matt.png">
+                        <img src="img/64ozQuantity.jpg">
                       </div>
                       <div class="content">
                         <div>
@@ -125,7 +125,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="64ozQuantity" name="64ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="64ozQuantity" name="64ozQuantity" data-title="1/2 Gallon" data-size="64 Ounces" data-price="30" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('64oz')">
@@ -138,7 +138,7 @@
                   <div class="col-lg-3">
                     <div class="ui card">
                       <div class="image">
-                        <img src="img/milk.jpeg">
+                        <img src="img/128ozQuantity.jpg">
                       </div>
                       <div class="content">
                         <div>
@@ -156,7 +156,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="128ozQuantity" name="128ozQuantity" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="128ozQuantity" name="128ozQuantity" data-title="1 Gallon" data-size="128 Ounces" data-price="54" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('128oz')">
@@ -201,7 +201,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="two fields">
+                <div class="three fields">
+                  <div class="field">
+                    <label>City</label>
+                    <div class="field">
+                      <input type="text" name="city" placeholder="City" required=true>
+                    </div>
+                  </div>
                   <div class="field">
                     <label>State</label>
                     <select class="ui fluid dropdown" name="state" required=true>
@@ -287,9 +293,61 @@
                     <div id="card-expiry-errors" class="col-lg-12 card-alerts" role="alert"></div>
                   </div>
                 </div>
-                <button class="ui button green sr-button">Submit Order</button>
+                <button class="ui right button green sr-button" style="float: right;">Submit Order</button>
               </form>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="confirmation">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-12">
+              <h4 class="ui dividing header">Confirm Purchase</h4>
+              <div class="confirm-shipping" style="display: flex; justify-content: space-around;">
+                <div style="display: flex; flex-direction: column; padding: 5px;">
+                  <h4 class="ui header">Shipping Address</h4>
+                  <span id="confirm-name"></span>
+                  <span id="confirm-addr1"></span>
+                  <span id="confirm-addr2"></span>
+                  <span id="confirm-state"></span>
+                  <span id="confirm-email"></span>
+                </div>
+                <div style="display: flex; flex-direction: column; padding: 5px;">
+                  <h4 class="ui header">Billing Method</h4>
+                    <span id="confirm-card"></span>
+                </div>
+              </div>
+              <div class="ui list" id="confirm-quantity" style="display: flex; flex-direction: column;"></div>
+              <div class="col-lg-12 product-total">
+                <h3 class="ui header">Total: $<span id="confirm-total"></span>.00</h3>
+              </div>
+              <div style="float: right; margin-top: 10px;">
+                <button class="ui button" onclick="editForm()">Back</button>
+                <button class="ui button green sr-button" onclick="confirmPurchase()">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="thank-you">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="col-lg-12">
+              <div class="thank-you-header">
+                <h4 class="ui header">Thank you!</h4>
+                <div class="check">
+                  <i class="fa fa-check ui green large"></i>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12 message"></div>
           </div>
         </div>
       </div>

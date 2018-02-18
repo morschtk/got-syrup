@@ -9,7 +9,7 @@ html {
   height: 100%; }
 
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif; }
+  font-family: 'Roboto Condensed', sans-serif; }
 
 hr {
   max-width: 50px;
@@ -33,7 +33,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif; }
+  font-family: 'Roboto', sans-serif; }
 
 .bg-primary {
   background-color: #F05F40 !important; }
@@ -278,6 +278,26 @@ header.masthead {
   height: 250px;
   width: 100%; }
 
+.confirmation {
+  display: none; }
+
+.thank-you {
+  display: none; }
+  .thank-you .thank-you-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .thank-you .thank-you-header .header {
+      margin: 0px;
+      font-size: 52px; }
+    .thank-you .thank-you-header .check {
+      font-size: 82px;
+      color: #008000; }
+  .thank-you .message {
+    display: flex;
+    flex-direction: column;
+    text-align: center; }
+
 .card .content {
   display: flex;
   justify-content: space-between;
@@ -299,6 +319,8 @@ header.masthead {
       border-radius: 1em;
       padding: 4px 10px;
       border: 1px solid rgba(34, 36, 38, 0.15); }
+    .card .select-item .edit-amount .edit-amount-button:hover {
+      cursor: pointer; }
     .card .select-item .edit-amount .add-item {
       background-color: #4CAF50;
       color: #FAFAFA; }

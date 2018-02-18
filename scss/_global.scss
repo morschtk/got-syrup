@@ -6,7 +6,8 @@ html {
 }
 
 body {
-  @include serif-font;
+  // @include serif-font;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 hr {
@@ -33,7 +34,8 @@ h3,
 h4,
 h5,
 h6 {
-  @include sans-serif-font;
+  // @include sans-serif-font;
+  font-family: 'Roboto', sans-serif;
 }
 
 .bg-primary {
