@@ -1,5 +1,5 @@
  /*
- * # Semantic UI - 2.2.13
+ * # Semantic UI - 2.2.14
  * https://github.com/Semantic-Org/Semantic-UI
  * http://www.semantic-ui.com/
  *
@@ -9,7 +9,7 @@
  *
  */
 /*!
- * # Semantic UI 2.2.13 - Form Validation
+ * # Semantic UI 2.2.14 - Form Validation
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -1716,7 +1716,7 @@ $.fn.form.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.13 - Checkbox
+ * # Semantic UI 2.2.14 - Checkbox
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -2548,7 +2548,7 @@ $.fn.checkbox.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.13 - Dropdown
+ * # Semantic UI 2.2.14 - Dropdown
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -6428,7 +6428,7 @@ $.fn.dropdown.settings.templates = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.13 - API
+ * # Semantic UI 2.2.14 - API
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -7596,7 +7596,7 @@ $.api.settings = {
 })( jQuery, window, document );
 
 /*!
- * # Semantic UI 2.2.13 - Visibility
+ * # Semantic UI 2.2.14 - Visibility
  * http://github.com/semantic-org/semantic-ui/
  *
  *

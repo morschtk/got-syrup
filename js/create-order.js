@@ -1,6 +1,24 @@
 "use strict"; // Start of use strict
 $(checkTotal);
 
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 function checkTotal() {
   $('#total').text((+$('#12ozQuantity').val()*9) + (+$('#32ozQuantity').val()*18) + (+$('#64ozQuantity').val()*30) + (+$('#128ozQuantity').val()*54));
 }
@@ -149,7 +167,9 @@ var tok;
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
   event.preventDefault();
-
+  if ($('#total').text() == '0') {
+    toastr.error('Please select a quantity of syrup');
+  } else {
   stripe.createToken(card).then(function(result) {
     if (!result.error) {
     //   var errorElement = document.getElementById('card-errors');
@@ -188,6 +208,7 @@ form.addEventListener('submit', function(event) {
       $('#confirm-total').text($('#total').text());
     }
   });
+  }
 });
 
 function confirmPurchase() {

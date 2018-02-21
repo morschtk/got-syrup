@@ -9,7 +9,8 @@
         "jquery.easing": "^1.4.1",
         "magnific-popup": "^1.1.0",
         "scrollreveal": "3.3.6",
-        "semantic-ui": "^2.2.14"
+        "semantic-ui": "^2.2.14",
+        "toastr": "^2.1.4"
     },
     "devDependencies": {
         "browser-sync": "2.18.13",
