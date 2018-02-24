@@ -67,7 +67,7 @@
   width: 100%;
 }
 
-.confirmation {
+.confirmation, .shipping, .billing {
   display: none;
 }
 
@@ -126,11 +126,11 @@
   }
 }
 
-.product-total {
-  display: flex;
-  margin-top: 5px;
-  justify-content: flex-end;
-}
+// .product-total {
+//   display: flex;
+//   margin: 1em;
+//   justify-content: flex-end;
+// }
 
 // .order {
 //   background-color: #fff;

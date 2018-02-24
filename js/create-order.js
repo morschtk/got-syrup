@@ -25,6 +25,7 @@ function checkTotal() {
 
 function editForm() {
   $('.order').show();
+  $('.shipping').hide();
   $('.confirmation').hide();
   $('.thank-you').hide();
 }
@@ -190,10 +191,13 @@ form.addEventListener('submit', function(event) {
 
       var quantity = $('.quantity');
       var quantityHtml = '';
-      quantity.each(function () {
+      quantity.each(function (index) {
         if ($(this).val().length > 0) {
-          quantityHtml = quantityHtml + `<div class="item" style="display: inline-flex; align-items: center; margin-bottom: 10px; background-color: #ddd;">
-          <img class="ui avatar image small" src="img/` + $(this).attr('name') + `.jpg">
+            let color = "white"
+            if (index % 2)
+                color = '#f5f5f5'
+          quantityHtml = quantityHtml + `<div class="item confirmItem" style="display: inline-flex; align-items: center; margin-bottom: 10px;background-color: ${color}">
+          <img class="ui image small" src="img/` + $(this).attr('name') + `.jpg">
           <div class="content" style="margin-left: 15px">
           <a class="header">` + $(this).attr('data-title') + ' - ' + $(this).attr('data-size') + `</a>
           <div class="description">$` + $(this).attr('data-price') + `</div>
@@ -245,4 +249,15 @@ function thankCustomer() {
   $('.thank-you').show();
   var thankText = `<span>Thank you so much ` + $('#confirm-name').text() + `! We apprciate your business and your love for locally grown quality syrup.</span><span>You will receive an email at ` + $('#confirm-email').text() + ` with more information about your order!</span>`;
   $('.thank-you .message').html(thankText);
+}
+
+function nextPage(page) {
+    $('.order').hide();
+    $('.shipping').hide();
+    $('.confirmation').hide();
+    $('.thank-you').hide();
+    $('.step').removeClass('active')
+
+    $(`.${page}`).show()
+    $(`#${page}tab`).addClass('active')
 }

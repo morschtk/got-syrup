@@ -267,7 +267,7 @@ header.masthead {
   height: 250px;
   width: 100%; }
 
-.confirmation {
+.confirmation, .shipping, .billing {
   display: none; }
 
 .toast-top-right {
@@ -310,11 +310,6 @@ header.masthead {
       color: #FAFAFA; }
   .card .select-item input {
     text-align: center; }
-
-.product-total {
-  display: flex;
-  margin-top: 5px;
-  justify-content: flex-end; }
 
 .order .cc-fields .field {
   position: relative;
