@@ -21,6 +21,7 @@ toastr.options = {
 
 function checkTotal() {
   $('#total').text((+$('#12ozQuantity').val()*9) + (+$('#32ozQuantity').val()*18) + (+$('#64ozQuantity').val()*30) + (+$('#128ozQuantity').val()*54));
+  $('#qtyTotal').text((+$('#12ozQuantity').val()) + (+$('#32ozQuantity').val()) + (+$('#64ozQuantity').val()) + (+$('#128ozQuantity').val()));
 }
 
 function editForm() {
@@ -50,6 +51,7 @@ function addItem(item) {
   }
   var total = +$('#total').text() + price;
   $('#total').text(total);
+  $('#qtyTotal').text(parseInt($('#qtyTotal').text()) + 1)
 }
 
 function removeItem(item) {
@@ -73,6 +75,7 @@ function removeItem(item) {
     }
     var total = +$('#total').text() - price;
     $('#total').text(total);
+    $('#qtyTotal').text(parseInt($('#qtyTotal').text()) - 1)
   }
 }
 
@@ -177,9 +180,7 @@ form.addEventListener('submit', function(event) {
     //   errorElement.textContent = result.error.message;
     // } else {
       tok = result.token.id;
-      $('.order').hide();
-      $('.confirmation').show();
-      $('.thank-you').hide();
+      nextPage('confirmation')
 
       $('#confirm-name').text($('#payment-form input[name=first_name]').val() + ' ' + $('#payment-form input[name=last_name]').val());
       $('#confirm-addr1').text($('#payment-form input[name=address_1]').val());
@@ -190,26 +191,54 @@ form.addEventListener('submit', function(event) {
       $('#confirm-card').text(result.token.card.brand + ' ending in ' + result.token.card.last4);
 
       var quantity = $('.quantity');
-      var quantityHtml = '';
+      var quantityHtml = `
+          <tr>
+              <td>PRODUCT</td>
+              <td>UNIT PRICE</td>
+              <td>QUANTITY</td>
+              <td>PRICE</td>
+          </tr>
+      `;
       quantity.each(function (index) {
         if ($(this).val().length > 0) {
             let color = "white"
             if (index % 2)
                 color = '#f5f5f5'
-          quantityHtml = quantityHtml + `<div class="item confirmItem" style="display: inline-flex; align-items: center; margin-bottom: 10px;background-color: ${color}">
-          <img class="ui image small" src="img/` + $(this).attr('name') + `.jpg">
-          <div class="content" style="margin-left: 15px">
-          <a class="header">` + $(this).attr('data-title') + ' - ' + $(this).attr('data-size') + `</a>
-          <div class="description">$` + $(this).attr('data-price') + `</div>
-          <div class="description">Quantity: ` + $(this).val() + `</div>
-          </div>
-          </div>`;
+          quantityHtml += `
+              <tr>
+                  <td>
+                      <h3 class="ui image header">
+                          <img src="img/500ml.jpg" class="ui rounded image">
+                          <div class="content">
+                              ${$(this).attr('name')} Glen Haven Pure Maple Syrup
+                              <div class="sub header">${$(this).attr('data-size')}</div>
+                          </div>
+                      </h3>
+                  </td>
+                  <td>
+                      ${$(this).attr('data-price')}
+                  </td>
+                  <td>${$(this).val()}</td>
+                  <td>
+                      ${$(this).attr('data-price') * $(this).val()}
+                  </td>
+              </tr>
+          `;
         }
       });
 
+      quantityHtml += `
+          <tr>
+              <td>TOTAL</td>
+              <td></td>
+              <td></td>
+              <td><h3 class="ui header orange">${$('#total').text()}</h3></td>
+          </tr>
+      `
+
       $('#confirm-quantity').html(quantityHtml);
 
-      $('#confirm-total').text($('#total').text());
+      // $('#confirm-total').text($('#total').text());
     }
   });
   }
@@ -254,6 +283,7 @@ function thankCustomer() {
 function nextPage(page) {
     $('.order').hide();
     $('.shipping').hide();
+    $('.billing').hide();
     $('.confirmation').hide();
     $('.thank-you').hide();
     $('.step').removeClass('active')

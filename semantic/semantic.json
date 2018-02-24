@@ -29,6 +29,7 @@
     "message",
     "statistic",
     "step",
+    "progress",
     "checkbox",
     "dropdown",
     "api",
