@@ -79,7 +79,7 @@ $('.quantity').change(function() {
   checkTotal();
 });
 
-var stripe = Stripe('');
+var stripe = Stripe('pk_test_iP6MbEvM9ZpbYwGiV0RvA49I');
 var elements = stripe.elements({
   fonts: [
     {
@@ -232,7 +232,7 @@ function stripeTokenHandler(token) {
   form.append(totalInput);
 
   // Submit the form
-  $.post('', form.serialize(), function(cred) {
+  $.post('https://q0t84mg1j6.execute-api.us-east-1.amazonaws.com/prod/got-syrup-dev-authenticate', form.serialize(), function(cred) {
     thankCustomer();
   }).fail(function(err) {
     console.log(err);
