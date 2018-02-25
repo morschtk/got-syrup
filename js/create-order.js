@@ -24,13 +24,6 @@ function checkTotal() {
   $('#qtyTotal').text((+$('#12ozQuantity').val()) + (+$('#32ozQuantity').val()) + (+$('#64ozQuantity').val()) + (+$('#128ozQuantity').val()));
 }
 
-function editForm() {
-  $('.order').show();
-  $('.shipping').hide();
-  $('.confirmation').hide();
-  $('.thank-you').hide();
-}
-
 function addItem(item) {
   var str = '#'+item+'Quantity';
   $(str).val(+$(str).val() + 1);
@@ -286,7 +279,7 @@ function thankCustomer() {
   $('.thank-you .message').html(thankText);
 }
 
-function nextPage(page, event) {
+function nextPage(page) {
   if (page == 'shipping' && $('#total').text() == '0') {
       toastr.error('Please select a quantity of syrup');
   } else {

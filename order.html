@@ -364,11 +364,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12" style="text-align:center; padding: 0 0 5em">
-                      <button class="ui right button orange sr-button" style="float: right;" type="submit">Proceed to billing <i class="ui right arrow icon"></i></button>
-                    </div>
-                </div>  <!-- END OF row -->
+                <div style="float: right; margin-top: 10px;">
+                  <button class="ui button" type="button" onclick="nextPage('order')">Back</button>
+                  <button class="ui right button orange sr-button" type="submit">Proceed to billing <i class="ui right arrow icon"></i></button>
+                </div>
             </form>
         </div>
     </section>
@@ -501,7 +500,10 @@
                         <div id="card-expiry-errors" class="col-lg-12 card-alerts" role="alert"></div>
                       </div>
                     </div>
-                    <button class="ui orange button or sr-button" style="float: right;" type="submit">Continue to order review</button>
+                    <div style="float: right; margin-top: 10px;">
+                      <button class="ui button" type="button" onclick="nextPage('shipping')">Back</button>
+                      <button class="ui orange button or sr-button" type="submit">Continue to order review</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -539,7 +541,7 @@
                 <h3 class="ui header">Total: $<span id="confirm-total"></span>.00</h3>
               </div>
               <div style="float: right; margin-top: 10px;">
-                <button class="ui button" onclick="editForm()">Back</button>
+                <button class="ui button" type="button" onclick="nextPage('billing')">Back</button>
                 <button class="ui button orange sr-button" onclick="confirmPurchase()">Place Order</button>
               </div>
             </div>

@@ -255,9 +255,6 @@ header.masthead {
   .thumbnail-container .carousel-thumbnail:hover {
     cursor: pointer; }
 
-.shipping .sr-button {
-  margin-top: 20px; }
-
 .billing .card-alerts {
   padding-top: 5px;
   color: #ff0000;
