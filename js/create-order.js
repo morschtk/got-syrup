@@ -167,6 +167,11 @@ cardCvc.addEventListener('change', function(event) {
   }
 });
 
+document.getElementById('shipping-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  nextPage('billing');
+});
+
 var tok;
 var form = document.getElementById('payment-form');
 form.addEventListener('submit', function(event) {
@@ -252,7 +257,7 @@ function confirmPurchase() {
 
 function stripeTokenHandler(token) {
   // Insert the token ID into the form so it gets submitted to the server
-  var form = $('#payment-form');
+  var form = $('form');
   var hiddenInput = document.createElement('input');
   hiddenInput.setAttribute('type', 'hidden');
   hiddenInput.setAttribute('name', 'stripeToken');
@@ -269,6 +274,7 @@ function stripeTokenHandler(token) {
     thankCustomer();
   }).fail(function(err) {
     console.log(err);
+    toastr.error(err.responseJSON.message);
   });
 }
 
@@ -280,7 +286,10 @@ function thankCustomer() {
   $('.thank-you .message').html(thankText);
 }
 
-function nextPage(page) {
+function nextPage(page, event) {
+  if (page == 'shipping' && $('#total').text() == '0') {
+      toastr.error('Please select a quantity of syrup');
+  } else {
     $('.order').hide();
     $('.shipping').hide();
     $('.billing').hide();
@@ -290,4 +299,5 @@ function nextPage(page) {
 
     $(`.${page}`).show()
     $(`#${page}tab`).addClass('active')
+  }
 }

@@ -261,35 +261,35 @@
 
     <section class="shipping">
         <div class="ui container">
-            <div class="ui form">
+            <form class="ui form" id="shipping-form">
                 <h4 class="ui dividing header">Shipping Information</h4>
                 <div class="two fields">
                 <div class="field">
                   <label>Email</label>
                   <div class="field">
-                    <input type="email" name="email" placeholder="Email" required=true>
+                    <input type="email" name="shipping_email" placeholder="Email" required=true>
                   </div>
                 </div>
                 <div class="field">
                   <label>Name</label>
                   <div class="two fields">
                     <div class="field">
-                      <input type="text" name="first_name" placeholder="First Name" required=true>
+                      <input type="text" name="shipping_first_name" placeholder="First Name" required=true>
                     </div>
                     <div class="field">
-                      <input type="text" name="last_name" placeholder="Last Name" required=true>
+                      <input type="text" name="shipping_last_name" placeholder="Last Name" required=true>
                     </div>
                   </div>
                 </div>
                 </div>
                 <div class="field">
-                  <label>Billing Address</label>
+                  <label>Shipping Address</label>
                   <div class="fields">
                     <div class="twelve wide field">
-                      <input type="text" name="address_1" placeholder="Street Address" required=true>
+                      <input type="text" name="shipping_address_1" placeholder="Street Address" required=true>
                     </div>
                     <div class="four wide field">
-                      <input type="text" name="address_2" placeholder="Apt #">
+                      <input type="text" name="shipping_address_2" placeholder="Apt #">
                     </div>
                   </div>
                 </div>
@@ -297,12 +297,12 @@
                   <div class="field">
                     <label>City</label>
                     <div class="field">
-                      <input type="text" name="city" placeholder="City" required=true>
+                      <input type="text" name="shipping_city" placeholder="City" required=true>
                     </div>
                   </div>
                   <div class="field">
                     <label>State</label>
-                    <select class="ui fluid dropdown" name="state" required=true>
+                    <select class="ui fluid dropdown" name="shipping_state" required=true>
                       <option value="">State</option>
                       <option value="AL">Alabama</option>
                       <option value="AK">Alaska</option>
@@ -360,16 +360,16 @@
                   <div class="field">
                     <label>ZIP CODE</label>
                     <div class="field">
-                      <input type="text" name="zip" placeholder="Zip Code" required=true>
+                      <input type="text" name="shipping_zip" placeholder="Zip Code" required=true>
                     </div>
                   </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12" style="text-align:center; padding: 0 0 5em">
-                      <button class="ui right button orange sr-button" style="float: right;" onclick="nextPage('billing')">Proceed to billing <i class="ui right arrow icon"></i></button>
+                      <button class="ui right button orange sr-button" style="float: right;" type="submit">Proceed to billing <i class="ui right arrow icon"></i></button>
                     </div>
                 </div>  <!-- END OF row -->
-            </div>
+            </form>
         </div>
     </section>
 
@@ -378,7 +378,7 @@
             <div class="ui form">
 
                 <form class="ui form" id="payment-form">
-                    <h4 class="ui dividing header">Shipping Information</h4>
+                    <h4 class="ui dividing header">Billing Information</h4>
                     <div class="two fields">
                     <div class="field">
                       <label>Email</label>

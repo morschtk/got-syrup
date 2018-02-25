@@ -255,10 +255,10 @@ header.masthead {
   .thumbnail-container .carousel-thumbnail:hover {
     cursor: pointer; }
 
-.order .sr-button {
-  margin-top: 30px; }
+.shipping .sr-button {
+  margin-top: 20px; }
 
-.order .card-alerts {
+.billing .card-alerts {
   padding-top: 5px;
   color: #ff0000;
   font-size: 13px; }
@@ -271,7 +271,7 @@ header.masthead {
   display: none; }
 
 .toast-top-right {
-  top: 60px; }
+  top: 75px; }
 
 .thank-you {
   display: none; }
