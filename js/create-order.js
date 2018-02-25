@@ -214,11 +214,11 @@ form.addEventListener('submit', function(event) {
                       </h3>
                   </td>
                   <td>
-                      ${$(this).attr('data-price')}
+                      $${$(this).attr('data-price')}.00
                   </td>
                   <td>${$(this).val()}</td>
                   <td>
-                      ${$(this).attr('data-price') * $(this).val()}
+                      $${$(this).attr('data-price') * $(this).val()}.00
                   </td>
               </tr>
           `;
@@ -227,10 +227,10 @@ form.addEventListener('submit', function(event) {
 
       quantityHtml += `
           <tr>
-              <td>TOTAL</td>
+              <td><h3 class="ui header">TOTAL</h3></td>
               <td></td>
               <td></td>
-              <td><h3 class="ui header orange">${$('#total').text()}</h3></td>
+              <td><h3 class="ui header">$${$('#total').text()}.00</h3></td>
           </tr>
       `
 
