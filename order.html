@@ -27,7 +27,7 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top" style="display: flex; flex-direction: column;">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top order-nav" id="mainNav" style="padding:20px; position:relative;box-shadow:0 2px 2px rgba(0,0,0,0.4)">
@@ -82,7 +82,7 @@
         </div>
     </section>
 
-    <section class="order" style="padding:1em 0 0">
+    <section class="order" style="padding:1em 0 0; flex: 1;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -111,7 +111,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="12ozQuantity" name="12ozQuantity" data-title="3/4 Pint" data-size="12 Ounces" data-price="9" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="12ozQuantity" name="12ozQuantity" data-image="100ml" data-title="3/4 Pint" data-size="12 Ounces" data-price="9" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('12oz')">
@@ -142,7 +142,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="32ozQuantity" name="32ozQuantity" data-title="1 Quart" data-size="32 Ounces" data-price="18" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="32ozQuantity" name="32ozQuantity" data-image="8oz" data-title="1 Quart" data-size="32 Ounces" data-price="18" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('32oz')">
@@ -173,7 +173,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="64ozQuantity" name="64ozQuantity" data-title="1/2 Gallon" data-size="64 Ounces" data-price="30" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="64ozQuantity" name="64ozQuantity" data-image="500ml" data-title="1/2 Gallon" data-size="64 Ounces" data-price="30" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('64oz')">
@@ -204,7 +204,7 @@
                           </div>
                         </div>
                         <div style="flex:2;" class="field">
-                          <input type="number" id="128ozQuantity" name="128ozQuantity" data-title="1 Gallon" data-size="128 Ounces" data-price="54" class="quantity" min="0" placeholder="0">
+                          <input type="number" id="128ozQuantity" name="128ozQuantity" data-image="pint" data-title="1 Gallon" data-size="128 Ounces" data-price="54" class="quantity" min="0" placeholder="0">
                         </div>
                         <div class="edit-amount">
                           <div class="edit-amount-button add-item" onclick="addItem('128oz')">
@@ -259,7 +259,7 @@
     </div> <!-- END OF CONTAINER -->
     </section>
 
-    <section class="shipping">
+    <section class="shipping" style="flex: 1;">
         <div class="ui container">
             <form class="ui form" id="shipping-form">
                 <h4 class="ui dividing header">Shipping Information</h4>
@@ -372,7 +372,7 @@
         </div>
     </section>
 
-    <section class="billing">
+    <section class="billing" style="flex: 1;">
         <div class="ui container">
             <div class="ui form">
 
@@ -509,7 +509,7 @@
         </div>
     </section>
 
-    <section class="confirmation">
+    <section class="confirmation" style="flex: 1;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -547,7 +547,7 @@
       </div>
     </section>
 
-    <section class="thank-you">
+    <section class="thank-you" style="flex: 1;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -565,7 +565,7 @@
       </div>
     </section>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary bottom" style="display: flex; color: rgba(255,255,255,.7); justify-content: space-between;">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary bottom" style="display: flex; color: rgba(255,255,255,.7); justify-content: space-between;flex-shrink: 0;">
         <a style="color: rgba(255,255,255,.7); font-size: 15px; flex:1;" href="index.html">Glen Haven Farm</a>
         <div style="display: flex; flex: 1; justify-content: flex-end;">
           <div style="display: flex; align-items: center; padding: 8px; margin-right: 8px;">

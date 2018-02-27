@@ -206,9 +206,9 @@ form.addEventListener('submit', function(event) {
               <tr>
                   <td>
                       <h3 class="ui image header">
-                          <img src="img/500ml.jpg" class="ui rounded image">
+                          <img src="img/${$(this).attr('data-image')}.jpg" class="ui rounded image">
                           <div class="content">
-                              ${$(this).attr('name')} Glen Haven Pure Maple Syrup
+                              ${$(this).attr('data-title')} Glen Haven Pure Maple Syrup
                               <div class="sub header">${$(this).attr('data-size')}</div>
                           </div>
                       </h3>
