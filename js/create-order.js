@@ -1,5 +1,6 @@
 "use strict"; // Start of use strict
 $(checkTotal);
+$(getLocation);
 
 toastr.options = {
   "closeButton": false,
@@ -19,9 +20,38 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+function getLocation() {
+  $.getJSON('https://api.ipinfodb.com/v3/ip-city/?key=25864308b6a77fd90f8bf04b3021a48c1f2fb302a676dd3809054bc1b07f5b42&format=json&callback=?', function(data) {
+    var fromNY = getDistanceFromLatLonInKm(data.latitude, data.longitude, 42.503167, -77.746567);
+    var fromCO = getDistanceFromLatLonInKm(data.latitude, data.longitude, 39.746307, -105.005494);
+    if (fromNY < fromCO) {
+      console.log('Closer to NY');
+    } else {
+      console.log('Closer to CO');
+    }
+  });
+}
+
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1);
+  var a =
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+    Math.sin(dLon/2) * Math.sin(dLon/2);
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
 function checkTotal() {
-  $('#total').text((+$('#12ozQuantity').val()*9) + (+$('#32ozQuantity').val()*18) + (+$('#64ozQuantity').val()*30) + (+$('#128ozQuantity').val()*54));
-  $('#qtyTotal').text((+$('#12ozQuantity').val()) + (+$('#32ozQuantity').val()) + (+$('#64ozQuantity').val()) + (+$('#128ozQuantity').val()));
+  $('#total').text((+$('#8ozQuantity').val()*8) + (+$('#16ozQuantity').val()*12) + (+$('#16_9ozQuantity').val()*14) + (+$('#32ozQuantity').val()*18));
+  $('#qtyTotal').text((+$('#8ozQuantity').val()) + (+$('#16ozQuantity').val()) + (+$('#16_9ozQuantity').val()) + (+$('#32ozQuantity').val()));
 }
 
 function addItem(item) {
@@ -29,17 +59,17 @@ function addItem(item) {
   $(str).val(+$(str).val() + 1);
   var price = 0;
   switch(item) {
-    case '12oz':
-      price = 9;
+    case '8oz':
+      price = 8;
+      break;
+    case '16oz':
+      price = 12;
+      break;
+    case '16_9oz':
+      price = 14;
       break;
     case '32oz':
       price = 18;
-      break;
-    case '64oz':
-      price = 30;
-      break;
-    case '128oz':
-      price = 54;
       break;
   }
   var total = +$('#total').text() + price;
@@ -53,17 +83,17 @@ function removeItem(item) {
     $(str).val(+$(str).val() - 1);
     var price = 0;
     switch(item) {
-      case '12oz':
-      price = 9;
+      case '8oz':
+      price = 8;
+      break;
+      case '16oz':
+      price = 12;
+      break;
+      case '16_9oz':
+      price = 14;
       break;
       case '32oz':
       price = 18;
-      break;
-      case '64oz':
-      price = 30;
-      break;
-      case '128oz':
-      price = 54;
       break;
     }
     var total = +$('#total').text() - price;
