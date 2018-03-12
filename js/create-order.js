@@ -20,16 +20,53 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+var pricesNY = {
+  eightOz: 8,
+  sixteenOz: 12,
+  sixteenPointNineOz: 14,
+  thirtyTwoOz: 18
+};
+
+var pricesCO = {
+  eightOz: 80,
+  sixteenOz: 120,
+  sixteenPointNineOz: 140,
+  thirtyTwoOz: 180
+};
+
+var displayPrices = pricesNY;
+var locate = 'NY';
+
 function getLocation() {
   $.getJSON('https://api.ipinfodb.com/v3/ip-city/?key=25864308b6a77fd90f8bf04b3021a48c1f2fb302a676dd3809054bc1b07f5b42&format=json&callback=?', function(data) {
     var fromNY = getDistanceFromLatLonInKm(data.latitude, data.longitude, 42.503167, -77.746567);
     var fromCO = getDistanceFromLatLonInKm(data.latitude, data.longitude, 39.746307, -105.005494);
     if (fromNY < fromCO) {
       console.log('Closer to NY');
+      setPrices(pricesNY);
+      locate = 'NY';
     } else {
       console.log('Closer to CO');
+      setPrices(pricesCO);
+      locate = 'CO';
     }
+  }).always(function() {
+    $('.spinner').hide();
+    $('.order-process').show();
   });
+}
+
+function setPrices(statePrice) {
+  displayPrices = statePrice;
+  $('#8ozQuantity_price').text(`$${displayPrices.eightOz}`);
+  $('#16ozQuantity_price').text(`$${displayPrices.sixteenOz}`);
+  $('#16_9ozQuantity_price').text(`$${displayPrices.sixteenPointNineOz}`);
+  $('#32ozQuantity_price').text(`$${displayPrices.thirtyTwoOz}`);
+
+  $('#8ozQuantity').attr('data-price', `${displayPrices.eightOz}`);
+  $('#16ozQuantity').attr('data-price', `${displayPrices.sixteenOz}`);
+  $('#16_9ozQuantity').attr('data-price', `${displayPrices.sixteenPointNineOz}`);
+  $('#32ozQuantity').attr('data-price', `${displayPrices.thirtyTwoOz}`);
 }
 
 function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
@@ -50,7 +87,7 @@ function deg2rad(deg) {
 }
 
 function checkTotal() {
-  $('#total').text((+$('#8ozQuantity').val()*8) + (+$('#16ozQuantity').val()*12) + (+$('#16_9ozQuantity').val()*14) + (+$('#32ozQuantity').val()*18));
+  $('#total').text((+$('#8ozQuantity').val()*displayPrices.eightOz) + (+$('#16ozQuantity').val()*displayPrices.sixteenOz) + (+$('#16_9ozQuantity').val()*displayPrices.sixteenPointNineOz) + (+$('#32ozQuantity').val()*displayPrices.thirtyTwoOz));
   $('#qtyTotal').text((+$('#8ozQuantity').val()) + (+$('#16ozQuantity').val()) + (+$('#16_9ozQuantity').val()) + (+$('#32ozQuantity').val()));
 }
 
@@ -60,16 +97,16 @@ function addItem(item) {
   var price = 0;
   switch(item) {
     case '8oz':
-      price = 8;
+      price = displayPrices.eightOz;
       break;
     case '16oz':
-      price = 12;
+      price = displayPrices.sixteenOz;
       break;
     case '16_9oz':
-      price = 14;
+      price = displayPrices.sixteenPointNineOz;
       break;
     case '32oz':
-      price = 18;
+      price = displayPrices.thirtyTwoOz;
       break;
   }
   var total = +$('#total').text() + price;
@@ -84,16 +121,16 @@ function removeItem(item) {
     var price = 0;
     switch(item) {
       case '8oz':
-      price = 8;
+      price = displayPrices.eightOz;
       break;
       case '16oz':
-      price = 12;
+      price = displayPrices.sixteenOz;
       break;
       case '16_9oz':
-      price = 14;
+      price = displayPrices.sixteenPointNineOz;
       break;
       case '32oz':
-      price = 18;
+      price = displayPrices.thirtyTwoOz;
       break;
     }
     var total = +$('#total').text() - price;
@@ -291,6 +328,11 @@ function stripeTokenHandler(token) {
   totalInput.setAttribute('name', 'total_amount');
   totalInput.setAttribute('value', $('#total').text());
   form.append(totalInput);
+  var locateInput = document.createElement('input');
+  locateInput.setAttribute('type', 'hidden');
+  locateInput.setAttribute('name', 'locate');
+  locateInput.setAttribute('value', locate);
+  form.append(locateInput);
 
   // Submit the form
   $.post('https://q0t84mg1j6.execute-api.us-east-1.amazonaws.com/prod/got-syrup-dev-authenticate', form.serialize(), function(cred) {

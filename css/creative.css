@@ -287,6 +287,23 @@ header.masthead {
     flex-direction: column;
     text-align: center; }
 
+.order-process {
+  display: none; }
+
+.spinner {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.card .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px; }
+  .card .content .desc {
+    flex: 1; }
+
 .card .select-item {
   display: flex;
   align-items: center;

@@ -30,11 +30,16 @@
   <body id="page-top" style="display: flex; flex-direction: column;">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top order-nav" id="mainNav" style="padding:20px; position:relative;box-shadow:0 2px 2px rgba(0,0,0,0.4)">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary fixed-top order-nav" id="mainNav" style="padding:20px; position:relative;box-shadow:0 2px 2px rgba(0,0,0,0.4); flex-grow: 0; flex-shrink: 0;">
         <a class="navbar-brand" href="index.html">Got Syrup</a>
     </nav>
 
+    <div class="spinner">
+      <i class="fa fa-refresh fa-spin" style="font-size:54px"></i>
+    </div>
+
     <!-- Hero Section-->
+    <div class="order-process" style="flex: 1;">
     <section class="hero hero-page gray-bg padding-small" style="padding: 70px 0;background:#f5f5f5">
       <div class="container">
         <div class="row d-flex">
@@ -67,7 +72,7 @@
                 </div>
               </div>
               <div id="billingtab" class="step">
-                <i class="credit card stripe icon"></i>
+                <i class="credit card icon"></i>
                 <div class="content">
                   <div class="title">Billing</div>
                 </div>
@@ -82,7 +87,7 @@
         </div>
     </section>
 
-    <section class="order" style="padding:1em 0 0; flex: 1;">
+    <section class="order" style="padding:1em 0 0 0; flex: 1;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -96,13 +101,13 @@
                         <img src="img/8oz.jpg">
                       </div>
                       <div class="content">
-                        <div>
+                        <div class="desc">
                           <a class="header">1/2 Pint</a>
                           <div class="meta">
                             <span>8 Ounces</span>
                           </div>
                         </div>
-                        <a class="turight floated mini ui header">$8</a>
+                        <span class="turight floated mini ui header" id="8ozQuantity_price">$8</span>
                       </div>
                       <div class="extra content select-item">
                         <div class="edit-amount">
@@ -127,13 +132,13 @@
                         <img src="img/pint.jpg">
                       </div>
                       <div class="content">
-                        <div>
+                        <div class="desc">
                           <a class="header">1 Pint</a>
                           <div class="meta">
                             <span>16 Ounces</span>
                           </div>
                         </div>
-                        <a class="turight floated mini ui header">$12</a>
+                        <span class="turight floated mini ui header" id="16ozQuantity_price">$12</span>
                       </div>
                       <div class="extra content select-item">
                         <div class="edit-amount">
@@ -158,13 +163,13 @@
                         <img src="img/500ml.jpg">
                       </div>
                       <div class="content">
-                        <div>
+                        <div class="desc">
                           <a class="header">500ml</a>
                           <div class="meta">
                             <span>16.9 Ounces</span>
                           </div>
                         </div>
-                        <a class="turight floated mini ui header">$14</a>
+                        <span class="turight floated mini ui header" id="16_9ozQuantity_price">$14</span>
                       </div>
                       <div class="extra content select-item">
                         <div class="edit-amount">
@@ -189,13 +194,13 @@
                         <img src="img/pint.jpg">
                       </div>
                       <div class="content">
-                        <div>
+                        <div class="desc">
                           <a class="header">Quart</a>
                           <div class="meta">
                             <span>32 Ounces</span>
                           </div>
                         </div>
-                        <a class="turight floated mini ui header">$18</a>
+                        <span class="turight floated mini ui header" id="32ozQuantity_price">$18</span>
                       </div>
                       <div class="extra content select-item">
                         <div class="edit-amount">
@@ -252,14 +257,14 @@
         </div>  <!-- END OF row -->
 
         <div class="row">
-            <div class="col-lg-12" style="text-align:center; padding: 0 0 5em">
+            <div class="col-lg-12" style="text-align:end; padding: 0 0 5em 0">
               <button class="ui button orange" onclick="nextPage('shipping')">Proceed to shipping <i class="ui right arrow icon"></i></button>
             </div>
         </div>  <!-- END OF row -->
     </div> <!-- END OF CONTAINER -->
     </section>
 
-    <section class="shipping" style="flex: 1;">
+    <section class="shipping" style="flex: 1; padding: 2em 0 6em 0">
         <div class="ui container">
             <form class="ui form" id="shipping-form">
                 <h4 class="ui dividing header">Shipping Information</h4>
@@ -364,7 +369,7 @@
                     </div>
                   </div>
                 </div>
-                <div style="float: right; margin-top: 10px;">
+                <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
                   <button class="ui button" type="button" onclick="nextPage('order')">Back</button>
                   <button class="ui right button orange sr-button" type="submit">Proceed to billing <i class="ui right arrow icon"></i></button>
                 </div>
@@ -372,7 +377,7 @@
         </div>
     </section>
 
-    <section class="billing" style="flex: 1;">
+    <section class="billing" style="flex: 1; padding: 2em 0 6em 0">
         <div class="ui container">
             <div class="ui form">
 
@@ -500,7 +505,7 @@
                         <div id="card-expiry-errors" class="col-lg-12 card-alerts" role="alert"></div>
                       </div>
                     </div>
-                    <div style="float: right; margin-top: 10px;">
+                    <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
                       <button class="ui button" type="button" onclick="nextPage('shipping')">Back</button>
                       <button class="ui orange button or sr-button" type="submit">Continue to order review</button>
                     </div>
@@ -509,7 +514,7 @@
         </div>
     </section>
 
-    <section class="confirmation" style="flex: 1;">
+    <section class="confirmation" style="flex: 1; padding: 2em 0 6em 0">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -537,7 +542,7 @@
 
                 </tbody>
               </table>
-              <div style="float: right; margin-top: 10px;">
+              <div style="display: flex; justify-content: flex-end; margin-top: 20px;">
                 <button class="ui button" type="button" onclick="nextPage('billing')">Back</button>
                 <button class="ui button orange sr-button" onclick="confirmPurchase()">Place Order</button>
               </div>
@@ -547,7 +552,7 @@
       </div>
     </section>
 
-    <section class="thank-you" style="flex: 1;">
+    <section class="thank-you" style="flex: 1; padding: 2em 0 6em 0">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -564,6 +569,7 @@
         </div>
       </div>
     </section>
+  </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-primary bottom" style="display: flex; color: rgba(255,255,255,.7); justify-content: space-between;flex-shrink: 0;">
         <a style="color: rgba(255,255,255,.7); font-size: 15px; flex:1;" href="index.html">Glen Haven Farm</a>
