@@ -21,8 +21,10 @@ header.masthead {
     }
   }
   @media (min-width: 992px) {
-    height: 100vh;
-    min-height: 650px;
+    // height: 100vh;
+    // min-height: 650px;
+    height: 600px;
+    max-height: 90%;
     padding-top: 0;
     padding-bottom: 0;
     h1 {
